@@ -10,13 +10,13 @@ class SuperAdminController extends Controller
 {
     public function AdminDashboard()
     {
-        // $this->adminAuthCheck();
+        $this->adminAuthCheck();
         return view('admin.dashboard.index');
     }
 
     public function logout(){
         Session::flush();
-        //  Auth::logout();
+         Auth::logout();
 
         return redirect()->route('admin.login')->with('message', 'You have been logged out successfully.');
     }

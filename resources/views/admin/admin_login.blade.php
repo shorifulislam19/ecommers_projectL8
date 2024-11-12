@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Admin LOgin</title>
+    <title>Admin Login</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -26,24 +26,24 @@
                             }
                         @endphp
 
-                        <form id="admin.login" class="form" action="{{ route('show_dashboard') }}" method="post">
+                        <form class="form" action="{{ route('admin_dashboard') }}" method="post">
                             @csrf
                             <h3 class="text-center text-info">Login</h3>
                             <div class="form-group">
-                                <label for="eamil" class="text-info">Email:</label><br>
-                                <input type="eamil" name="admin_email" id="email" class="form-control">
+                                <label for="admin_email" class="text-info">Email:</label><br>
+                                <input type="eamil" name="admin_email" id="admin_email" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="password" class="text-info">Password:</label><br>
+                                <label for="admin_password" class="text-info">Password:</label><br>
                                 <input type="password" name="admin_password" id="admin_password" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
                                 <input type="submit" name="submit" class="btn btn-info btn-md" value="Admin Login">
                             </div>
-                            <div id="register-link" class="text-right">
+                            {{-- <div id="register-link" class="text-right">
                                 <a href="#" class="text-info">Register here</a>
-                            </div>
+                            </div> --}}
                         </form>
                     </div>
                 </div>

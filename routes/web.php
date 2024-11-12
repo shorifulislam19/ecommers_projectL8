@@ -24,5 +24,5 @@ Route::get('/',[HomeController::class, 'index'])->name('welcome');
 Route::get('/admin/login',[AdminController::class, 'index'])->name('admin.login');
 Route::get('/admin/dashboard',[SuperAdminController::class, 'AdminDashboard'])->name('admin.dashboard');
 // for login
-Route::post('/show_dashboard',[AdminController::class, 'show_dashboard'])->name('show_dashboard');
+Route::post('/admin_dashboard',[AdminController::class, 'show_dashboard'])->name('admin_dashboard');
 Route::get('/logout',[SuperAdminController::class, 'logout'])->name('logout');

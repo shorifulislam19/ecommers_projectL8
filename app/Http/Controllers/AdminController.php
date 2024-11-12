@@ -28,8 +28,8 @@ class AdminController extends Controller
                        ->first();
 
         if ($result) {
-             Session::put('admin_id', $result->id);
-            Session::put('admin_name', $result->admin_name);
+             Session::put('admin_id', $result->admin_id);
+            Session::put('admin_name', value: $result->admin_name);
 
             return redirect()->route('admin.dashboard');
         } else {
