@@ -24,7 +24,6 @@ class SuperAdminController extends Controller
     public function adminAuthCheck(){
         $admin_id = Session::get('admin_id');
         if (!$admin_id) {
-            // If not authenticated, redirect to login
             return redirect()->route('admin.login')->send();
         }
     }
