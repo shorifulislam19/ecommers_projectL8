@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -27,7 +28,27 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
+        ]);
+
+
+       $category = new Category();
+       $category->id = $request->category;
+       $category->name = $request->name;
+       $category->description = $request->description;
+
+       if($request->hasFile('image')){
+        $file = $request->file('image');
+        $extenssion = $file->getClientOriginalExtension();
+        $fileName = time().'.'.$extenssion;
+        $file->move('category', $fileName);
+        $category->image = $fileName;
+       }
+       $category->save();
+       return redirect()->back()->with('message','Category Added Successfuly!!');
     }
 
     /**

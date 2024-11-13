@@ -20,17 +20,22 @@
                 </div>
 
                 <div class="card-body">
-                    <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                    @if(session('message'))
+                        <div class="alert alert-success">
+                            {{ session('message') }}
+                        </div>
+                    @endif
+                    <form class="form-horizontal" action="{{ url('/categories/') }}" method="post" enctype="multipart/form-data">
                         @csrf
 
                         <div class="mb-3">
                             <label for="name" class="form-label">Category Name</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
+                            <input type="text" class="form-control" id="name" name="name" >
                         </div>
 
                         <div class="mb-3">
                             <label for="description" class="form-label">Category Description</label>
-                            <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+                            <textarea class="form-control" id="description" name="description" rows="4" ></textarea>
                         </div>
 
                         <div class="mb-3">
