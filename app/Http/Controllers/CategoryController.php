@@ -12,7 +12,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $ShowCategory = Category::all();
+        return view('admin.category.index',compact('ShowCategory'));
     }
 
     /**
@@ -56,7 +57,7 @@ class CategoryController extends Controller
      */
     public function show(string $id)
     {
-        //
+
     }
 
     /**
