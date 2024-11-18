@@ -20,11 +20,7 @@
                 </div>
 
                 <div class="card-body">
-                    @if(session('message'))
-                        <div class="alert alert-success">
-                            {{ session('message') }}
-                        </div>
-                    @endif
+
                     <form class="form-horizontal" action="{{ url('/categories/') }}" method="post" enctype="multipart/form-data">
                         @csrf
 

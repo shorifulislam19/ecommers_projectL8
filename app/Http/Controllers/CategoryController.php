@@ -49,15 +49,21 @@ class CategoryController extends Controller
         $category->image = $fileName;
        }
        $category->save();
-       return redirect()->back()->with('message','Category Added Successfuly!!');
+       return redirect('categories')->with('message','Category Added Successfuly!!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function change_status(Category $category)
     {
-
+        if($category->status==1){
+            $category->update(['status'=>0]);
+        }
+        else{
+            $category->update(['status'=>1]);
+        }
+        return redirect()->back()->with('message','Status Change Successfuly!!');
     }
 
     /**

@@ -8,36 +8,59 @@
         </div>
     @endif
 <h2> All Category</h2>
+
     <table class="table table-bordered">
         <thead>
-            <tr>
+            <tr style="text-align: center" >
                 <th>Sl No</th>
                 <th>Category Name</th>
                 <th>Description</th>
+                <th>Image</th>
                 <th>Status</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($ShowCategory as $key => $category)
-                <tr>
-                    <td>{{ $key + 1 }}</td>
-                    <td>{{ $category->name }}</td>
-                    <td>{{ $category->description }}</td>
-                    <td>{{ $category->status ? 'Active' : 'Inactive' }}</td>
-                    <td>
+                <tr style="text-align: center">
+                    <td >{{ $key + 1 }}</td>
+                    <td >{{ $category->name }}</td>
+                    <td >{{ $category->description }}</td>
+                    <td >
+                        <img src="{{ asset('category/' . $category->image) }}" alt="Category Image" width="50" height="50">
+                    </td>
+                    <td >
+                        @if ($category->status==1)
+                        <span class="btn btn-success">Active</span>
+                        @else
+                        <span class="btn btn-danger">Inactive</span>
+                        @endif
+                    </td>
+                    <td class="row">
+                        <div class="span3"></div>
+                        <div class="span2">
+                            @if ($category->status==1)
+                            <a href="{{ url('/cat-status'.$category->id) }}" class="btn btn-success mr-2">
+                                <i class="fas fa-thumbs-down"></i>
+                            </a>
+                            @else
+                             <a href="{{ url('/cat-status'.$category->id) }}" class="btn btn-success mr-2">
+                                <i class="fas fa-thumbs-up"></i>
+                            </a>
+                            @endif
+                        </div>
 
-                        <a href="#" class="btn btn-info btn-sm">View</a>
+                        <div class="span2">
+                            <a href="#" class="btn btn-info mr-2">Edit</a>
+                        </div>
 
 
-                        <a href="#" class="btn btn-primary btn-sm">Edit</a>
+                        <div class="span2">
+                            <a href="#" class="btn btn-danger ">Delete</a>
+                        </div>
 
+                        <div class="span3"></div>
 
-                        <form action="#" method="POST" style="display: inline-block;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this category?')">Delete</button>
-                        </form>
                     </td>
                 </tr>
             @endforeach
