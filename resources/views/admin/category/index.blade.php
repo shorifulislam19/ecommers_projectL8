@@ -51,12 +51,17 @@
                         </div>
 
                         <div class="span2">
-                            <a href="#" class="btn btn-info mr-2">Edit</a>
+                            <a href="{{ url('/categories/'.$category->id.'/edit') }}" class="btn btn-info mr-2">Edit</a>
                         </div>
 
 
                         <div class="span2">
-                            <a href="#" class="btn btn-danger ">Delete</a>
+                            <form action="{{ url('/categories/'.$category->id.'destroy') }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+
+                            </form>
                         </div>
 
                         <div class="span3"></div>

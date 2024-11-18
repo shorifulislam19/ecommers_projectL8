@@ -18,7 +18,7 @@ Route::post('/admin_dashboard',[AdminController::class, 'show_dashboard'])->name
 Route::get('/logout',[SuperAdminController::class, 'logout'])->name('logout');
 
 // Categoty Routes here
-Route::resource('/categories/',CategoryController::class);
+Route::resource('/categories',CategoryController::class);
 Route::get('/cat-status{category}',[CategoryController::class, 'change_status']);
 
 
