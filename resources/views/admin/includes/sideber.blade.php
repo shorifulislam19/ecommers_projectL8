@@ -4,6 +4,12 @@
       <img src="{{ asset('admin/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
+    <div class="">
+        <a href="{{ route('admin.dashboard') }}" class=" btn-lg d-inline-flex align-items-center shadow">
+           Dashboard
+        </a>
+    </div>
+
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -59,6 +65,29 @@
             </ul>
           </li>
 
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Sub Category
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('/sub-categories/create') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Sub Category</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url('/sub-categories') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>All Sub Category</p>
+                </a>
+              </li>
+            </ul>
+          </li>
 
           <li class="nav-item">
             <a href="#" class="nav-link">

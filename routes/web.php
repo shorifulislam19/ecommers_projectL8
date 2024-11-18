@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\HomeController;
 use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SuCategoryController;
 
 
 // user part
@@ -21,4 +22,6 @@ Route::get('/logout',[SuperAdminController::class, 'logout'])->name('logout');
 Route::resource('/categories',CategoryController::class);
 Route::get('/cat-status{category}',[CategoryController::class, 'change_status']);
 
-
+// Sub Categoty Routes here
+Route::resource('/sub-categories',SuCategoryController::class);
+Route::get('/subcat-status{subcategory}',[SuCategoryController::class, 'change_status']);

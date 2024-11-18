@@ -101,15 +101,11 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        // Get the path of the image file
-        $imagePath = 'category/' . $category->image; // Assuming images are stored in the "category" folder
 
-        // Delete the image from the storage
+        $imagePath = 'category/' . $category->image;
         if (Storage::exists($imagePath)) {
             Storage::delete($imagePath);
         }
-
-        // Delete the category record from the database
         $delete = $category->delete();
 
         if ($delete) {
