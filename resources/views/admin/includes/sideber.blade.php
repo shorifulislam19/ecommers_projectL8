@@ -93,6 +93,30 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
+                Brand
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('/brands/create') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Brand</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url('/brands') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>All Brand</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
                 User
                 <i class="fas fa-angle-left right"></i>
               </p>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BrandController;
 use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\HomeController;
 use App\Http\Controllers\SuperAdminController;
@@ -25,3 +26,7 @@ Route::get('/cat-status{category}',[CategoryController::class, 'change_status'])
 // Sub Categoty Routes here
 Route::resource('/sub-categories',SuCategoryController::class);
 Route::get('/subcat-status{subcategory}',[SuCategoryController::class, 'change_status']);
+
+// Brand Routes here
+Route::resource('/brands',BrandController::class);
+Route::get('/brand-status{brand}',[BrandController::class, 'change_status']);
