@@ -6,8 +6,10 @@ use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\HomeController;
 use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ColorController;
+use App\Http\Controllers\SizeController;
 use App\Http\Controllers\SuCategoryController;
-
+use App\Http\Controllers\UnitController;
 
 // user part
 Route::get('/',[HomeController::class, 'index'])->name('welcome');
@@ -30,3 +32,15 @@ Route::get('/subcat-status{subcategory}',[SuCategoryController::class, 'change_s
 // Brand Routes here
 Route::resource('/brands',BrandController::class);
 Route::get('/brand-status{brand}',[BrandController::class, 'change_status']);
+
+// Unit Routes here
+Route::resource('/units',UnitController::class);
+Route::get('/unit-status{unit}',[UnitController::class, 'change_status']);
+
+// Size Routes here
+Route::resource('/sizes',SizeController::class);
+Route::get('/size-status{size}',[SizeController::class, 'change_status']);
+
+// olor Routes here
+Route::resource('/colors',ColorController::class);
+Route::get('/color-status{color}',[ColorController::class, 'change_status']);

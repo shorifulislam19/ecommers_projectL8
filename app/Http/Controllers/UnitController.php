@@ -3,17 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brand;
+use App\Models\Unit;
 use Illuminate\Http\Request;
 
-class BrandController extends Controller
+class UnitController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $brands = Brand::all();
-        return view('admin.brand.index',compact('brands'));
+        $units = Unit::all();
+        return view('admin.unit.index',compact('units'));
     }
 
     /**
@@ -21,7 +22,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        return view('admin.brand.create');
+        return view('admin.unit.create');
     }
 
     /**
@@ -36,24 +37,24 @@ class BrandController extends Controller
         ]);
 
 
-       $brand = new Brand();
-       $brand->id = $request->brand;
-        $brand->name = $request->name;
-        $brand->description = $request->description;
-       $brand->save();
-       return redirect('brands')->with('message','Brand Added Successfuly!!');
+       $unit = new Unit();
+       $unit->id = $request->brand;
+        $unit->name = $request->name;
+        $unit->description = $request->description;
+       $unit->save();
+       return redirect('units')->with('message','Unit Added Successfuly!!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function change_status(Brand $brand)
+    public function change_status(Unit $unit)
     {
-        if($brand->status==1){
-            $brand->update(['status'=>0]);
+        if($unit->status==1){
+            $unit->update(['status'=>0]);
         }
         else{
-            $brand->update(['status'=>1]);
+            $unit->update(['status'=>1]);
         }
         return redirect()->back()->with('message','Status Change Successfuly!!');
     }
@@ -61,28 +62,28 @@ class BrandController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Brand $brand)
+    public function edit(Unit $unit)
     {
-        return view('admin.brand.edit', compact('brand'));
+        return view('admin.unit.edit', compact('unit'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Brand $brand)
+    public function update(Request $request, Unit $unit)
     {
-        $brand->name = $request->name;
-        $brand->description = $request->description;
-    $brand->update();
-    return redirect('/brands')->with('message', 'Brand updated successfully!');
+        $unit->name = $request->name;
+        $unit->description = $request->description;
+    $unit->update();
+    return redirect('/units')->with('message', 'Unit updated successfully!');
 }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Brand $brand)
+    public function destroy(Unit $unit)
     {
-        $delete = $brand->delete();
+        $delete = $unit->delete();
 
         if ($delete) {
             return redirect()->back()->with('message', 'Brand Deleted Successfully!!');

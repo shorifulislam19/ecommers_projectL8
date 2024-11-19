@@ -79,7 +79,7 @@ class SuCategoryController extends Controller
         $subcategory->cat_id = $request->category;
         $subcategory->description = $request->description;
 
-        $subcategory->save();
+        $subcategory->update();
         return redirect('/sub-categories')->with('message', 'Sub Category updated successfully!');
     }
 

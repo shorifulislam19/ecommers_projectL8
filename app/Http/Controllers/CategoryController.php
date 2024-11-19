@@ -92,7 +92,7 @@ class CategoryController extends Controller
         $file->move(public_path('category'), $fileName);
         $category->image = $fileName;
     }
-    $category->save();
+    $category->update();
     return redirect('/categories')->with('message', 'Category updated successfully!');
 }
 

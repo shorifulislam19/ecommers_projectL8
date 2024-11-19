@@ -117,31 +117,77 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                User
+                Unit
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/tables/simple.html" class="nav-link">
+                <a href="{{ url('/units/create') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Simple Tables</p>
+                  <p>Add Unit</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
+                <a href="{{ url('/units') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>DataTables</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/tables/jsgrid.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>jsGrid</p>
+                  <p>All Unit</p>
                 </a>
               </li>
             </ul>
-            <li class="nav-item">
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Size
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('/sizes/create') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Sizes</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url('/sizes') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>All Sizes</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Color
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('/colors/create') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Color</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url('/colors') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>All Color</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+             <li class="nav-item">
                 <a href="{{ route('logout') }}" class="nav-link btn btn-danger">
                   Logout
                 </a>
