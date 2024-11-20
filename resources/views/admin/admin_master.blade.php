@@ -31,7 +31,7 @@
   <style>
     .bootstrap-tagsinput {
         display: block !important;
-        background-color: #fff; /* Set a visible background color */
+        background-color: black; /* Set a visible background color */
         color: #212529; /* Set text color to black or any other visible color */
         width: 100%;
         padding: 0.375rem 0.75rem;
@@ -43,7 +43,7 @@
 
     .bootstrap-tagsinput .tag {
         background-color: #007bff; /* Blue tag background */
-        color: #fff; /* White text color for tags */
+        color: black; /* White text color for tags */
         border-radius: 3px;
         padding: 3px 6px;
         margin-right: 2px;
@@ -52,7 +52,9 @@
     .bootstrap-tagsinput input {
         color: #212529; /* Ensure input text is visible */
     }
+
 </style>
+
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
