@@ -63,5 +63,6 @@
 		<script src="{{ asset('asset/frontend/') }}js/jquery.zoom.min.js"></script>
 		<script src="{{ asset('asset/frontend/js/main.js') }}"></script>
 
+
 	</body>
 </html>

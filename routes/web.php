@@ -49,3 +49,6 @@ Route::get('/color-status{color}',[ColorController::class, 'change_status']);
 // Product Routes here
 Route::resource('/products',ProductController::class);
 Route::get('/product-status/{product}',[ProductController::class, 'change_status']);
+
+// Home page
+Route::get('/view-product/{id}',[HomeController::class, 'view_details']);

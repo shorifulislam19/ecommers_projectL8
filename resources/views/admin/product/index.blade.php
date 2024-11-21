@@ -42,6 +42,9 @@
                     <td>{{ $product->category->name }}</td>
                     <td>{{ $product->subcategory->name }}</td>
                     <td>{{ $product->brand->name }}</td>
+                    {{-- <td>{{ $product->unit->name }}</td>
+                    <td>{{ $product->size->size }}</td>
+                    <td>{{ $product->color->color }}</td> --}}
                     <td>
                         @foreach ($product->image as $images )
                         <img src="{{ asset('image/' . $images) }}" alt="Product Image" width="50" height="50">

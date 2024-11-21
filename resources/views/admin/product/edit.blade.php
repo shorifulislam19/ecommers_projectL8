@@ -78,7 +78,7 @@
                             <select class="form-control" id="size" name="size">
                                 <option value="">-- Select Size --</option>
                                 @foreach ($sizes as $size)
-                                    <option value="{{ $size->id }}" {{ $product->size_id == $size->id ? 'selected' : '' }}>{{ $size->name }}</option>
+                                    <option value="{{ $size->id }}" {{ $product->size_id == $size->id ? 'selected' : '' }}>{{ $size->size }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -87,7 +87,7 @@
                             <select class="form-control" id="color" name="color">
                                 <option value="">-- Select Color --</option>
                                 @foreach ($colors as $color)
-                                    <option value="{{ $color->id }}" {{ $product->color_id == $color->id ? 'selected' : '' }}>{{ $color->name }}</option>
+                                    <option value="{{ $color->id }}" {{ $product->color_id == $color->id ? 'selected' : '' }}>{{ $color->color }}</option>
                                 @endforeach
                             </select>
                         </div>
