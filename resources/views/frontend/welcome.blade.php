@@ -43,7 +43,7 @@
 							<div class="section-nav">
 								<ul class="section-tab-nav tab-nav">
                                     @foreach ($categories as $category )
-                                    <li><a  data-toggle="tab" href="#tab1">{{$category->name  }}</a></li>
+                                    <li><a  data-toggle="tab" href="{{ url('/product_by_cat', $category->id) }}">{{$category->name  }}</a></li>
                                    @endforeach
 
 								</ul>
@@ -166,7 +166,7 @@
 							<div class="section-nav">
 								<ul class="section-tab-nav tab-nav">
                                     @foreach ($categories as $category )
-                                    <li><a  data-toggle="tab" href="#tab1">{{$category->name  }}</a></li>
+                                    <li><a  data-toggle="tab" href="{{ url('/product_by_cat', $category->id) }}">{{$category->name  }}</a></li>
                                    @endforeach
 								</ul>
 							</div>

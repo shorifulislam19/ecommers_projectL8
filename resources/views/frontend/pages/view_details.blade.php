@@ -59,13 +59,17 @@ $product['image'] = explode('|', $product->image);
 								<label>
 									Size
 									<select class="input-select">
-										<option value="0">{{ $product->size->size }}</option>
+										@foreach (Json_decode($sizes->size) as $value )
+                                        <option value="0">{{ $value}}</option>
+                                        @endforeach
 									</select>
 								</label>
 								<label>
 									Color
 									<select class="input-select">
-										<option value="0">{{ $product->color->color }}</option>
+                                        @foreach (Json_decode($colors->color) as $value )
+                                        <option value="0">{{ $value}}</option>
+                                        @endforeach
 									</select>
 								</label>
 							</div>
@@ -325,4 +329,30 @@ $product['image'] = explode('|', $product->image);
 			<!-- /container -->
 		</div>
 		<!-- /SECTION -->
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-title">
+                            <h3 class="title">Related Products</h3>
+                        </div>
+                    </div>
+
+                        <div class="col-md-3 col-xs-6">
+                            <div class="product">
+                                <div class="product-img">
+                                    <img src="" alt="">
+                                </div>
+                                <div class="product-body">
+                                    <h3 class="product-name"><a href="" ></a></h3>
+                                    <h4 class="product-price"></h4>
+                                </div>
+                                <div class="add-to-cart">
+                                    <a href="" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
 @endsection

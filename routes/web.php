@@ -52,3 +52,4 @@ Route::get('/product-status/{product}',[ProductController::class, 'change_status
 
 // Home page
 Route::get('/view-product/{id}',[HomeController::class, 'view_details']);
+Route::get('/product_by_cat/{id}',[HomeController::class, 'product_by_cat']);
