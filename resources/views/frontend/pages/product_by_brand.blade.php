@@ -14,21 +14,22 @@ use App\Models\Product;
 					<div id="aside" class="col-md-3">
 						<!-- aside Widget -->
 						<div class="aside">
-							<h3 class="aside-title">SubCategories</h3>
+							<h3 class="aside-title">Categories</h3>
 							<div class="checkbox-filter">
-                                @foreach ($subcategories as $subcategory)
+                                @foreach ($categories as $category)
                                 <?php
-                                $subcatProductCount = \App\Models\Product::subcatProductCount($subcategory->id);
+                                $catProductCount = \App\Models\Product::catProductCount($category->id);
                                  ?>
 								<div class="input-checkbox">
 									<input type="checkbox" id="category-1">
 									<label for="category-1">
 										<span></span>
                                         <li>
-                                            <a href="{{ url('/product_by_subcat'.$subcategory->id) }}">
-                                                {{ $subcategory->name }}</a>
+                                            <a href="{{ url('/product_by_cat'.$category->id) }}">
+                                                {{ $category->name }}
+                                            </a>
                                         </li>
-										<small>{{  $subcatProductCount  }}</small>
+										<small>{{  $catProductCount  }}</small>
 									</label>
 								</div>
                                 @endforeach
@@ -58,22 +59,22 @@ use App\Models\Product;
 
 						<!-- aside Widget -->
 						<div class="aside">
-							<h3 class="aside-title">Brand</h3>
+							<h3 class="aside-title">Sub Category</h3>
 							<div class="checkbox-filter">
-								@foreach ($brands as $brand )
+								@foreach ($subcategories as $subcategory )
                                 <?php
-                                $brandProductCount = \App\Models\Product::brandProductCount($brand->id);
+                                $subcatProductCount = \App\Models\Product::subcatProductCount($subcategory->id);
                                  ?>
-                                <div class="input-checkbox">
-									<input type="checkbox" id="brand-1">
-									<label for="brand-1">
+								<div class="input-checkbox">
+									<input type="checkbox" id="category-1">
+									<label for="category-1">
 										<span></span>
                                         <li>
-                                            <a href="{{ url('/product_by_brand'.$brand->id) }}">
-                                                {{ $brand->name }}</a>
+                                            <a href="{{ url('/product_by_subcat'.$subcategory->id) }}">
+                                                {{ $subcategory->name }}
+                                            </a>
                                         </li>
-
-										<small>{{ $brandProductCount }}</small>
+										<small>{{  $subcatProductCount  }}</small>
 									</label>
 								</div>
                                 @endforeach
@@ -162,7 +163,7 @@ use App\Models\Product;
 										</div>
 									</div>
 									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Add to Card </button>
+										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
 									</div>
 								</div>
 							</div>

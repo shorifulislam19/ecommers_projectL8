@@ -83,7 +83,11 @@ $product['image'] = explode('|', $product->image);
 										<span class="qty-down">-</span>
 									</div>
 								</div>
-								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+
+                                <div class="add-to-cart">
+                                    <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Add to Card </button>
+                                </div>
+
 							</div>
 
 							<ul class="product-btns">

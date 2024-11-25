@@ -52,6 +52,22 @@ class HomeController extends Controller
         $products = Product::where('status',1)->where('cat_id',$id)->limit(12)->get();
         return view('frontend.pages.product_by_cat',compact('categories','subcategories','brands','products'));
     }
+    public function product_by_subcat($id)
+    {
+        $categories = Category::all();
+        $subcategories = SubCategory::all();
+        $brands = Brand::all();
+        $products = Product::where('status',1)->where('subcat_id',$id)->limit(12)->get();
+        return view('frontend.pages.product_by_subcat',compact('categories','subcategories','brands','products'));
+    }
+    public function product_by_brand($id)
+    {
+        $categories = Category::all();
+        $subcategories = SubCategory::all();
+        $brands = Brand::all();
+        $products = Product::where('status',1)->where('br_id',$id)->limit(12)->get();
+        return view('frontend.pages.product_by_brand',compact('categories','subcategories','brands','products'));
+    }
 
     /**
      * Store a newly created resource in storage.

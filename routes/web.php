@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\HomeController;
 use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SizeController;
@@ -53,3 +55,12 @@ Route::get('/product-status/{product}',[ProductController::class, 'change_status
 // Home page
 Route::get('/view-product/{id}',[HomeController::class, 'view_details']);
 Route::get('/product_by_cat/{id}',[HomeController::class, 'product_by_cat']);
+Route::get('/product_by_subcat/{id}', [HomeController::class, 'product_by_subcat']);
+Route::get('/product_by_brand/{id}', [HomeController::class, 'product_by_brand']);
+
+// add to acrt
+Route::post('/add_to_cart', [CartController::class, 'add_to_cart']);
+Route::get('/delete-cart/{id}', [CartController::class, 'delete']);
+Route::get('/checkout', [CheckoutController::class, 'checkout']);
+
+

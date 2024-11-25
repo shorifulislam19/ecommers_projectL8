@@ -43,4 +43,18 @@ class Product extends Model
         return $this->belongsTo(Color::class,'color_id');
     }
 
+    public static function catProductCount($cat_id) {
+        $catCount = Product::where('cat_id',$cat_id)->where('status',1)->count();
+        return $catCount;
+    }
+    public static function subcatProductCount($subcat_id) {
+        $subcatCount = Product::where('subcat_id',$subcat_id)->where('status',1)->count();
+        return $subcatCount;
+    }
+    public static function brandProductCount($br_id) {
+        $brandcount = Product::where('br_id',$br_id)->where('status',1)->count();
+        return $brandcount;
+    }
+
+
 }
