@@ -9,6 +9,7 @@ use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ColorController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SizeController;
 use App\Http\Controllers\SuCategoryController;
@@ -61,6 +62,13 @@ Route::get('/product_by_brand/{id}', [HomeController::class, 'product_by_brand']
 // add to acrt
 Route::post('/add_to_cart', [CartController::class, 'add_to_cart']);
 Route::get('/delete-cart/{id}', [CartController::class, 'delete']);
+
+//  Checkout
 Route::get('/checkout', [CheckoutController::class, 'checkout']);
+Route::get('/login-check', [CheckoutController::class, 'LogingCheck']);
+// Customer login and registration route here
+Route::post('/customer-login', [CustomerController::class, 'Login']);
+Route::post('/customer-registration', [CustomerController::class, 'Registration']);
+Route::get('customer-logout', [CustomerController::class, 'logout']);
 
 

@@ -9,7 +9,16 @@
             </ul>
             <ul class="header-links pull-right">
                 <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
-                <li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
+                @php
+                $customer_id = Session::get('id');
+            @endphp
+            @if (!empty($customer_id))
+                <li><a href="{{ url('/customer-logout') }}"><i class="fa fa-user-o"></i> Logout</a></li>
+            @else
+                <li><a href="{{ url('/login-check') }}"><i class="fa fa-user-o"></i> Login</a></li>
+            @endif
+
+
             </ul>
         </div>
     </div>
@@ -112,8 +121,16 @@
                                 <h5>SUBTOTAL: {{ Cart::getTotal() }}</h5>
                             </div>
                             <div class="cart-btns">
-                                <a href="#">View Cart</a>
+                                @php
+                                $customer_id = Session::get('id');
+                            @endphp
+                            @if (!empty($customer_id))
                                 <a href="{{ url('/checkout') }}">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+                            @else
+                                <a href="{{ url('/login-check') }}">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+                            @endif
+
+
                             </div>
                         </div>
                     </div>
