@@ -2,17 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
+use App\Models\Order;
 use App\Models\Payment;
 use App\Models\Shipping;
 use Cart;
 use Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 class CheckoutController extends Controller
 {
     public function checkout(){
-        return view('frontend.pages.checkout');
+        $customer_id = Customer::where('id',Session::get('id'))->first();
+        return view('frontend.pages.checkout',compact('customer_id'));
     }
 
     public function LogingCheck(){
@@ -45,7 +49,7 @@ class CheckoutController extends Controller
         $data['zip-code'] = $request->mobile;
         $data['address'] = $request->mobile;
         $s_id = Shipping::insertGetId($data);
-        Session::put('id',$s_id);
+        Session::put('sid',$s_id);
         return Redirect::to('/payment');
 
     }
@@ -62,6 +66,27 @@ class CheckoutController extends Controller
         $pdata['payment_method']= $request->payment_method;
         // $pdata['status']= 'pending';
         $payment_id = Payment::insertGetId($pdata);
+
+
+        $orderdata= array();
+        $orderdata['cus_id'] =Session::get('id');
+        $orderdata['ship_id'] =Session::get('sid');
+        $orderdata['pay_id'] =$payment_id;
+        $orderdata['total'] =Cart::getTotal();
+        $orderdata['status'] ='pending';
+        $order_id = Order::insertGetId($orderdata);
+
+
+        $cartCollection = Cart::getContent();
+        $od_data =array();
+        Foreach($cartCollection as $cartcontent){
+            $od_data['order_id']=$order_id;
+            $od_data['product_id']=$cartcontent->id;
+            $od_data['product_name']=$cartcontent->name;
+            $od_data['product_price']=$cartcontent->price;
+            $od_data['product_sales_quantity']=$cartcontent->quantity;
+            DB::table('order_details')->insert($od_data);
+        }
     }
 
 
