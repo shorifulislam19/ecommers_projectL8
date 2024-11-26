@@ -69,6 +69,7 @@ Route::get('/login-check', [CheckoutController::class, 'LogingCheck']);
 // Customer login and registration route here
 Route::post('/customer-login', [CustomerController::class, 'Login']);
 Route::post('/customer-registration', [CustomerController::class, 'Registration']);
-Route::get('customer-logout', [CustomerController::class, 'logout']);
+Route::get('/customer-logout', [CustomerController::class, 'logout']);
+Route::post('/save-shipping-address', [CheckoutController::class, 'save_shipping_address']);
 
 
