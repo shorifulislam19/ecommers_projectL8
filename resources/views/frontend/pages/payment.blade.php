@@ -1,9 +1,10 @@
 @extends('frontend.master')
 @section('content')
 
-
+<div class="row">
+    <div class="col-md-3"></div>
 					<!-- Order Details -->
-					<div class="col-md-5 order-details">
+					<div class="col-md-6 order-details" style="margin-top: 100px;margin-bottom:80px">
 						<div class="section-title text-center">
 							<h3 class="title">Your Order</h3>
 						</div>
@@ -12,65 +13,79 @@
 								<div><strong>PRODUCT</strong></div>
 								<div><strong>TOTAL</strong></div>
 							</div>
-							<div class="order-products">
-								<div class="order-col">
-									<div>1x Product Name Goes Here</div>
-									<div>$980.00</div>
+
+								@foreach ($cart_array as $cart )
+							    <div class="order-products">
+                                <div class="order-col">
+									<div>{{ $cart['quantity'] }}x {{ $cart['name'] }}</div>
+									<div>&#2547;{{ Cart::get($cart['id'])->getPriceSum() }}</div>
 								</div>
-								<div class="order-col">
-									<div>2x Product Name Goes Here</div>
-									<div>$980.00</div>
-								</div>
-							</div>
+                             </div>
+                             @endforeach
+
+
 							<div class="order-col">
 								<div>Shiping</div>
 								<div><strong>FREE</strong></div>
 							</div>
 							<div class="order-col">
 								<div><strong>TOTAL</strong></div>
-								<div><strong class="order-total">$2940.00</strong></div>
+								<div><strong class="order-total">&#2547;{{ cart::getTotal() }}</strong></div>
 							</div>
 						</div>
-						<div class="payment-method">
-							<div class="input-radio">
-								<input type="radio" name="payment" id="payment-1">
-								<label for="payment-1">
-									<span></span>
-									Direct Bank Transfer
-								</label>
-								<div class="caption">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-								</div>
-							</div>
-							<div class="input-radio">
-								<input type="radio" name="payment" id="payment-2">
-								<label for="payment-2">
-									<span></span>
-									Cheque Payment
-								</label>
-								<div class="caption">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-								</div>
-							</div>
-							<div class="input-radio">
-								<input type="radio" name="payment" id="payment-3">
-								<label for="payment-3">
-									<span></span>
-									Paypal System
-								</label>
-								<div class="caption">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-								</div>
-							</div>
-						</div>
-						<div class="input-checkbox">
-							<input type="checkbox" id="terms">
-							<label for="terms">
-								<span></span>
-								I've read and accept the <a href="#">terms & conditions</a>
-							</label>
-						</div>
-						<a href="#" class="primary-btn order-submit">Place order</a>
+
+
+                        <form action="{{ url('/place-order') }}" method="post">
+                            @csrf
+                            <div class="section-title text-center" style="margin-top: 40px">
+                                <h4 class="title" style="color: rgb(213, 14, 14)"> Please select Payment system</h4>
+
+                            </div>
+
+                            <div class="payment-method">
+                                <div class="input-radio">
+                                    <input type="radio" name="payment_method" id="payment-1" value="cash">
+                                    <label for="payment-1">
+                                        <span></span>
+                                        Cash On Delivery
+                                    </label>
+                                    <div class="caption">
+                                        <p>You can also select Cash On Delivery.</p>
+                                    </div>
+                                </div>
+                                <div class="input-radio">
+                                    <input type="radio" name="payment_method" id="payment-2" value="bkash">
+                                    <label for="payment-2">
+                                        <span></span>
+                                        Bkash
+                                    </label>
+                                    <div class="caption">
+                                        <p>Bkash No : 01........</p>
+                                    </div>
+                                </div>
+                                <div class="input-radio">
+                                    <input type="radio" name="payment_method" id="payment-3" value="nogod">
+                                    <label for="payment-3">
+                                        <span></span>
+                                        Nogod
+                                    </label>
+                                    <div class="caption">
+                                            <p>Nogod No : 01........</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-checkbox">
+                                <input type="checkbox" id="terms">
+                                <label for="terms">
+                                    <span></span>
+                                    I've read and accept the <a href="#">terms & conditions</a>
+                                </label>
+                            </div>
+                            <input type="submit" class="primary-btn order-submit" style="float:right;" value="Place Order">
+                        </form>
+
 					</div>
 					<!-- /Order Details -->
+                    <div class="col-md-3"></div>
+</div>
 @endsection

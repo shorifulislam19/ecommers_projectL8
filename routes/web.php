@@ -71,5 +71,7 @@ Route::post('/customer-login', [CustomerController::class, 'Login']);
 Route::post('/customer-registration', [CustomerController::class, 'Registration']);
 Route::get('/customer-logout', [CustomerController::class, 'logout']);
 Route::post('/save-shipping-address', [CheckoutController::class, 'save_shipping_address']);
+Route::get('/payment', [CheckoutController::class, 'payment']);
+Route::post('/place-order', [CheckoutController::class, 'order_place']);
 
 

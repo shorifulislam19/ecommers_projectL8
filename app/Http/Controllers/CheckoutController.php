@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Payment;
 use App\Models\Shipping;
+use Cart;
 use Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -47,4 +49,20 @@ class CheckoutController extends Controller
         return Redirect::to('/payment');
 
     }
+
+    public function payment(){
+        $cartCollection = Cart::getContent();
+        $cart_array = $cartCollection->toArray();
+        return view('frontend.pages.payment',compact('cart_array'));
+    }
+
+    public function order_place(Request $request){
+        // $payment_method = $request->payment;
+        $pdata=array();
+        $pdata['payment_method']= $request->payment_method;
+        // $pdata['status']= 'pending';
+        $payment_id = Payment::insertGetId($pdata);
+    }
+
+
 }
