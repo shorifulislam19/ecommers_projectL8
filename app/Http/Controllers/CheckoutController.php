@@ -60,34 +60,45 @@ class CheckoutController extends Controller
         return view('frontend.pages.payment',compact('cart_array'));
     }
 
-    public function order_place(Request $request){
-        // $payment_method = $request->payment;
-        $pdata=array();
-        $pdata['payment_method']= $request->payment_method;
-        // $pdata['status']= 'pending';
+    public function order_place(Request $request) {
+
+        $payment_method = $request->payment_method;
+        $pdata = array();
+        $pdata['payment_method'] = $payment_method;
         $payment_id = Payment::insertGetId($pdata);
 
 
-        $orderdata= array();
-        $orderdata['cus_id'] =Session::get('id');
-        $orderdata['ship_id'] =Session::get('sid');
-        $orderdata['pay_id'] =$payment_id;
-        $orderdata['total'] =Cart::getTotal();
-        $orderdata['status'] ='pending';
+        $orderdata = array();
+        $orderdata['cus_id'] = Session::get('id');
+        $orderdata['ship_id'] = Session::get('sid');
+        $orderdata['pay_id'] = $payment_id;
+        $orderdata['total'] = Cart::getTotal();
+        $orderdata['status'] = 'pending';
         $order_id = Order::insertGetId($orderdata);
 
-
         $cartCollection = Cart::getContent();
-        $od_data =array();
-        Foreach($cartCollection as $cartcontent){
-            $od_data['order_id']=$order_id;
-            $od_data['product_id']=$cartcontent->id;
-            $od_data['product_name']=$cartcontent->name;
-            $od_data['product_price']=$cartcontent->price;
-            $od_data['product_sales_quantity']=$cartcontent->quantity;
+        foreach ($cartCollection as $cartcontent) {
+            $od_data = array();
+            $od_data['order_id'] = $order_id;
+            $od_data['product_id'] = $cartcontent->id;
+            $od_data['product_name'] = $cartcontent->name;
+            $od_data['product_price'] = $cartcontent->price;
+            $od_data['product_sales_quantity'] = $cartcontent->quantity;
             DB::table('order_details')->insert($od_data);
         }
+
+
+        if ($payment_method == 'cash') {
+            Cart::clear();
+            return view('frontend.pages.payment_method');
+        }
+        elseif ($payment_method == 'bkash') {
+            Cart::clear();
+            return view('frontend.pages.payment_method');
+    } elseif ($payment_method == 'nogod') {
+        Cart::clear();
+        return view('frontend.pages.payment_method');
+}
+
     }
-
-
 }
