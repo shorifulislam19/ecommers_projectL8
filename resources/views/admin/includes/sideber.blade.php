@@ -209,6 +209,12 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="{{ url('/manage-order') }}" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>Orders</p>
+            </a>
+          </li>
 
           <li class="nav-item">
              <li class="nav-item">

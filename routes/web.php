@@ -10,6 +10,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SizeController;
 use App\Http\Controllers\SuCategoryController;
@@ -73,5 +74,7 @@ Route::get('/customer-logout', [CustomerController::class, 'logout']);
 Route::post('/save-shipping-address', [CheckoutController::class, 'save_shipping_address']);
 Route::get('/payment', [CheckoutController::class, 'payment']);
 Route::post('/place-order', [CheckoutController::class, 'order_place']);
+// orders route
+Route::get('/manage-order', [OrderController::class, 'manage_order']);
 
 
