@@ -42,7 +42,7 @@
 								<input class="input" type="text" name="country" placeholder="Country">
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="zip-code" placeholder="ZIP Code">
+								<input class="input" type="text" name="zip_code" placeholder="ZIP Code">
 							</div>
 							<div class="form-group">
 								<input class="input" type="text" name="mobile" placeholder="Mobile NUmber">

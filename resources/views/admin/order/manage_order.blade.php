@@ -61,7 +61,7 @@
                                 <i class="fas fa-thumbs-up"></i>
                             </a>
                             <!-- Edit -->
-                            <a class="btn btn-info" href="#">
+                            <a class="btn btn-info" href="{{ url('/view-order/'.$order->id) }}">
                                 <i class="fas fa-edit"></i>
                             </a>
                             <!-- Trash -->

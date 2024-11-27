@@ -30,7 +30,7 @@ class CheckoutController extends Controller
             'city' => 'required|string|max:100',
             'country' => 'required|string|max:100',
             'mobile' => 'required|numeric|digits_between:10,15',
-            'zip-code' => 'required|numeric',
+            'zip_code' => 'required|numeric',
             'address' => 'required|string|max:500',
         ], [
             'name.required' => 'Name is required.',
@@ -46,8 +46,8 @@ class CheckoutController extends Controller
         $data['city'] = $request->city;
         $data['country'] = $request->country;
         $data['mobile'] = $request->mobile;
-        $data['zip-code'] = $request->mobile;
-        $data['address'] = $request->mobile;
+        $data['zip_code'] = $request->zip_code;
+        $data['address'] = $request->address;
         $s_id = Shipping::insertGetId($data);
         Session::put('sid',$s_id);
         return Redirect::to('/payment');

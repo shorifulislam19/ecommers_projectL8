@@ -16,6 +16,6 @@ class Shipping extends Model
         'city',
         'country',
         'mobile',
-        'zip-code',
+        'zip_code',
     ];
 }

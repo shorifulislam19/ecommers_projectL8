@@ -76,5 +76,6 @@ Route::get('/payment', [CheckoutController::class, 'payment']);
 Route::post('/place-order', [CheckoutController::class, 'order_place']);
 // orders route
 Route::get('/manage-order', [OrderController::class, 'manage_order']);
+Route::get('/view-order/{id}', [OrderController::class, 'view_order']);
 
 
